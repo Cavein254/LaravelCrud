@@ -41,7 +41,7 @@ class UserControllerTest extends TestCase
     public function guests_can_get_login_page()
     {
         $response = $this->get(route('login'));
-        $response->assertSuccessful();
+        $response->assertViewIs('auth.login');
     }
 
     /**
@@ -50,6 +50,6 @@ class UserControllerTest extends TestCase
     public function guest_can_get_register_page()
     {
         $response = $this->get(route('register'));
-        $response->assertSuccessful();
+        $response->assertViewIs('auth.register');
     }
 }
