@@ -25,4 +25,13 @@ class UserControllerTest extends TestCase
 
         $this->assertEquals($user->id, $returnedUser->id, "The returned user is different from the one we requested");
     }
+
+    /**
+     * @test
+     */
+    public function prevent_guests_from_creating_new_articles()
+    {
+        $response = $this->get(route('create_new_article'));
+        $response->assertRedirect('login');
+    }
 }
