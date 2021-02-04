@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->integer('author_id')->unsigned()->nullable();
-                $table->foreign('author_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }
